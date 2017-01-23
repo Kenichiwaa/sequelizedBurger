@@ -1,0 +1,27 @@
+{
+  "name": "expresshandleburgers",
+  "version": "0.0.1",
+  "description": "burger app that uses mySQL, node, and handlebars to generate html",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kenichiwaa/ExpressHandleBurgers.git"
+  },
+  "author": "Kenichi Sugai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kenichiwaa/ExpressHandleBurgers/issues"
+  },
+  "homepage": "https://github.com/Kenichiwaa/ExpressHandleBurgers#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.7",
+    "mysql": "^2.12.0"
+  }
+}
