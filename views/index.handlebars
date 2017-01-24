@@ -1,17 +1,24 @@
 
-<h1>Hamburguesa's</h1>
+
+<div class="container">
+  <img src="/assets/img/hamburger-icon.png" alt="Haumburger Icon"></img>
+  <h3 style="color:red">Eat-Da-Burger</h3>
+  <hr />
+</div>
+
+
 
 <div class="col s6">
-    <h5>Burgers that have not been devoured</h5>
+    <h5>Waiting to be devoured</h5>
 
     <ul>
       {{#each burgers}}
         {{#unless this.devoured}}
-          <li>
+          <li class="burger-orders">
             {{this.burger_name}}
-              <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+              <form action="burgers/update/{{this.id}}?_method=PUT" method="POST" class="float:right">
                 <input type="hidden" name="devoured" value="true">
-                <button type="submit" class="waves-effect waves-light btn">Devoured!</button>
+                <button type="submit" class="waves-effect waves-light btn">Eat!</button>
               </form>
 
             {{> burgers/delete-burger}}
@@ -23,16 +30,16 @@
 
 
 <div class="col s6">
-  <h5> Burgers that have been devoured</h5>
+  <h5> Already in my Belly</h5>
 
   <ul>
     {{#each burgers}}
       {{#if this.devoured}}
-        <li>
+        <li class="burger-orders">
           {{this.burger_name}}
-          <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+          <form action="burgers/update/{{this.id}}?_method=PUT" method="POST" class="float:right">
             <input type="hidden" name="devoured" value="false" />
-            <button type="submit" class="waves-effect waves-light btn">Un-devour</button>
+            <button type="submit" class="waves-effect waves-light btn">Put Back</button>
           </form>
 
           {{> burgers/delete-burger}}
@@ -43,21 +50,15 @@
 </div>
 
 <div class="col s12">
-  <h2>Add a burger</h2>
+  <h3>Add a burger</h3>
   <form class="create-update-form" action="burgers/create" method="POST">
 
     <div class="form-group">
-      <label for="burger_name">Burger Name:</label>
-      <input type="text" id="burger_name" name="burger_name" />
+      <label for="burger_name"></label>
+      <input type="text" id="burger_name" name="burger_name"/>
+      <button type="submit">Submit</button>
     </div>
 
-    <div class="form-group col s6">
-      <label for="devoured">Devoured?</label><br />
-      <input type="checkbox" name="devoured" value="1" checked />Devoured! <br />
-      <input type="checkbox" name="devoured" value="0" /> Not Devoured
-    </div>
-    
-    <button type="submit">Submit</button>
 </div>
 
 <!-- {{> parallax/parallax2}} -->

@@ -1,18 +1,11 @@
 body {
   margin: 0 auto;
   max-width: 100%;
+  background-color: #FFCE5A;
+  text-align: center;
   /*width: 1024px;*/
 }
-.content{
-  background-color: #FFF;
-  overflow: auto;
-  padding: 20px;
-  width: auto;
-}
-.parallax-window, .parallax-window2, .parallax-window3 {
-  min-height: 600px;
-  background: transparent;
- -moz-box-shadow:    inset 0 0 20px #3f3f3f;
- -webkit-box-shadow: inset 0 0 20px #3f3f3f;
- box-shadow:         inset 0 0 20px #3f3f3f;
+
+.burger-orders {
+  border: 1px solid #000;
 }
