@@ -18,25 +18,54 @@ router.get("/burgers", function(req, res) {
 });
 
 // POST route for saving a new burger
-// router.post("/burgers/create", function(req, res) {
-//   db.Post.create(req.body).then(function(dbPost) {
-//     res.json(dbPost);
-//   });
-// });
-//
-// router.put("/burgers/update/:id", function(req, res) {
-//
-// });
-//
-// // Delete route for deleting burgers
-// router.delete("/burgers/delete/:id", function(req, res) {
-//   db.Post.destroy({
-//     where: {
-//       id: req.params.id
-//     }
-//   }).then(function(dbPost) {
-//     res.json(dbPost);
-//   });
-// });
+router.post("/burgers/create", function(req, res) {
+  db.Burger.create(req.body)
+  .then(function(dbPost) {
+    res.redirect("/");
+  });
+});
+
+// Send buger to devoured section on the right
+router.put("/burgers/devour/:id", function(req, res) {
+ db.Burger.update(
+   {
+   devoured: true
+ },{
+   where: {
+     id: req.params.id
+   }
+ }
+ ).then(function(dbPost) {
+   console.log("Update burger devoured "+dbPost);
+   res.redirect("/");
+ });
+});
+
+// Put burger back
+router.put("/burgers/putback/:id", function(req, res) {
+ db.Burger.update(
+   {
+   devoured: false
+ },{
+   where: {
+     id: req.params.id
+   }
+ }
+ ).then(function(dbPost) {
+   console.log("Update burger devoured "+dbPost);
+   res.redirect("/");
+ });
+});
+
+// Delete route for deleting burgers
+router.delete("/burgers/delete/:id", function(req, res) {
+  db.Post.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(dbPost) {
+    res.json(dbPost);
+  });
+});
 
 module.exports = router;

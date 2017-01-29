@@ -16,7 +16,7 @@
         {{#unless this.devoured}}
           <li class="burger-orders">
             {{this.burger_name}}
-              <form action="burgers/update/{{this.id}}?_method=PUT" method="POST" class="float:right">
+              <form action="burgers/devour/{{this.id}}?_method=PUT" method="POST">
                 <input type="hidden" name="devoured" value="true">
                 <button type="submit" class="waves-effect waves-light btn">Eat!</button>
               </form>
@@ -37,7 +37,7 @@
       {{#if this.devoured}}
         <li class="burger-orders">
           {{this.burger_name}}
-          <form action="burgers/update/{{this.id}}?_method=PUT" method="POST" class="float:right">
+          <form action="burgers/putback/{{this.id}}?_method=PUT" method="POST">
             <input type="hidden" name="devoured" value="false" />
             <button type="submit" class="waves-effect waves-light btn">Put Back</button>
           </form>
