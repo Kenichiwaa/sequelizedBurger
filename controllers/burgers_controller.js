@@ -52,19 +52,20 @@ router.put("/burgers/putback/:id", function(req, res) {
    }
  }
  ).then(function(dbPost) {
-   console.log("Update burger devoured "+dbPost);
+   console.log("Update burger devoured "+ dbPost);
    res.redirect("/");
  });
 });
 
 // Delete route for deleting burgers
 router.delete("/burgers/delete/:id", function(req, res) {
-  db.Post.destroy({
+  db.Burger.destroy({
     where: {
       id: req.params.id
     }
   }).then(function(dbPost) {
-    res.json(dbPost);
+    console.log("Deleting burger: " + dbPost);
+    res.redirect("/");
   });
 });
 
